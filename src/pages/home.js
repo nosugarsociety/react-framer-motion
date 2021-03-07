@@ -11,7 +11,11 @@ const transition = {
 const Home = ({ imageDetails, image }) => (
   <>
     <main>
-      <div className='container'>
+      <motion.div
+        exit={{ opacity: 0 }}
+        transition={transition}
+        className='container'
+      >
         <div className='row center'>
           <div className='image-container'>
             <div
@@ -37,16 +41,20 @@ const Home = ({ imageDetails, image }) => (
                 </Link>
               </div>
             </div>
-            <div className='information'>
-              <div className='title'>Yasmeen Tariq</div>
+            <motion.div
+              exit={{ opacity: 0 }}
+              transition={transition}
+              className='information'
+            >
+              <div className='title'>Gesaffelstein</div>
               <div className='location'>
                 <span>28.538336</span>
                 <span>-81.379234</span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </main>
   </>
 );
