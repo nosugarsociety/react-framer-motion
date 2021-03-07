@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 //Pages
-import Home from "./pages/home";
-import Model from "./pages/model";
+import Home from './pages/home';
+import Model from './pages/model';
 //components
-import Header from "./components/header";
+import Header from './components/header';
 //Styles
-import "./App.scss";
+import './App.scss';
 
 function App() {
   const imageDetails = {
@@ -20,18 +21,20 @@ function App() {
       <Header />
       <Route
         render={({ location }) => (
-          <Switch location={location} key={location.pathname}>
-            <Route
-              exact
-              path='/'
-              render={() => <Home imageDetails={imageDetails} />}
-            />
-            <Route
-              exact
-              path='/model/:id'
-              render={() => <Model imageDetails={imageDetails} />}
-            />
-          </Switch>
+          <AnimatePresence initial={false} exit>
+            <Switch location={location} key={location.pathname}>
+              <Route
+                exact
+                path='/'
+                render={() => <Home imageDetails={imageDetails} />}
+              />
+              <Route
+                exact
+                path='/model/:id'
+                render={() => <Model imageDetails={imageDetails} />}
+              />
+            </Switch>
+          </AnimatePresence>
         )}
       />
     </Router>

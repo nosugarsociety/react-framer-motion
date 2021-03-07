@@ -147,8 +147,11 @@ main {
           overflow: hidden;
           position: relative;
           .frame {
+            height: 100%;
             img {
               width: 100%;
+              object-fit: cover;
+              height: 100%;
             }
           }
         }
